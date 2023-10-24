@@ -1,76 +1,87 @@
 <!DOCTYPE html>
 <html>
+
+<style>
+    body {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        margin: 0;
+    }
+    .grid {
+        box-sizing: border-box;
+        width: max-content;
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        gap: 20px;
+    }
+
+    #tileGrid {
+        margin: auto;
+    }
+
+    .tile {
+        width: 200px;
+        height: 200px;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        perspective: 1000px;
+    }
+
+    .tile-inner {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .tile-front, .tile-back {
+        top:0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .tile-front {
+        background-color: #003cff;
+    }
+
+    .tile-back {
+        /*background-color: #7ef113;*/
+        transform: rotateY(180deg);
+    }
+
+    /*.tile-inner {*/
+    /*    transform: rotateY(180deg);*/
+    /*}*/
+
+    .tile img {
+        /*display: none;*/
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
 <head>
     <title>Randomized Tile Grid 4.0</title>
-    <style>
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            gap: 10px;
-        }
-
-        .tile {
-            width: 100px;
-            height: 100px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .tile img {
-            display: none;
-            max-width: 100%;
-            max-height: 100%;
-        }
-    </style>
 </head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
-    <h1>Randomized Tile Grid</h1>
     <div class="grid" id="tileGrid">
         <!-- The JavaScript code will populate the grid with randomized images -->
     </div>
-
-    <script>
-        // List of image sources to be randomized
-        var imageSources = [
-            "WizardCat.jpg",
-            "NurseCat.jpg",
-            "JailCat.webp",
-            "GojoCat.jpg",
-            "PirateCat.jpg",
-            "SpaceCat.jpg",
-            "SailorCat.jpg",
-            "HairCat.jpg",
-            "Scary.jpg"
-        ];
-
-        // Shuffle the image sources randomly
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        shuffle(imageSources);
-
-        //stuuuuuuuupid
-
-        // Create the grid and add images
-        var tileGrid = document.getElementById("tileGrid");
-        for (let i = 0; i < imageSources.length; i++) {
-            var tile = document.createElement("div");
-            tile.className = "tile";
-            var image = document.createElement("img");
-            image.src = imageSources[i];
-            tile.appendChild(image);
-            tile.addEventListener("click", function () {
-                image.style.display = "block";
-            });
-            tileGrid.appendChild(tile);
-        }
-    </script>
 </body>
+
+<script src="script.js"></script>
 </html>
