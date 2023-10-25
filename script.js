@@ -11,12 +11,28 @@ const imageSources = [
     "./pics/Jumpscare.png",
 ];
 
+function randomizeArray(arr) {
+    let res = []
+    let randomIndex = 0
+    let indexList = [...Array()]
+    while(res.length < arr.length){
+        randomIndex = Math.floor(Math.random() * arr.length)
+        if(arr[randomIndex] in res){
+            continue
+        } else {
+            res.push(arr[randomIndex])
+        }
+    }
+    return res
+}
+
 function createTiles(){
     const tileGrid = document.getElementById("tileGrid");
     let htmlText = ''
-    for (let i = 0; i < imageSources.length; i++) {
+    const shuffledImages = randomizeArray(imageSources)
+    for (let i = 0; i < shuffledImages.length; i++) {
         htmlText = '<div class="tile"><div class="tile-inner"><div class="tile-front"></div><div class="tile-back">'
-        htmlText += `<img src="${imageSources[i]}" alt="Image">`
+        htmlText += `<img src="${shuffledImages[i]}" alt="Image">`
         htmlText += '</div></div></div>'
 
         // tile.appendChild(image);
