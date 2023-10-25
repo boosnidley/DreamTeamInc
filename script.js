@@ -14,12 +14,10 @@ const imageSources = [
 function randomizeArray(arr) {
     let res = []
     let randomIndex = 0
-    let indexList = [...Array()]
     while(res.length < arr.length){
-        randomIndex = Math.floor(Math.random() * arr.length)
-        if(arr[randomIndex] in res){
-            continue
-        } else {
+        randomIndex = Math.floor(Math.random() * (arr.length))
+        console.log(randomIndex)
+        if(!res.includes(arr[randomIndex])){
             res.push(arr[randomIndex])
         }
     }
@@ -31,7 +29,8 @@ function createTiles(){
     let htmlText = ''
     const shuffledImages = randomizeArray(imageSources)
     for (let i = 0; i < shuffledImages.length; i++) {
-        htmlText = '<div class="tile"><div class="tile-inner"><div class="tile-front"></div><div class="tile-back">'
+        htmlText = '<div class="tile"><div class="tile-inner"><div class="tile-front">' +
+            '<img src="pics/knife.svg" alt=""></div><div class="tile-back">'
         htmlText += `<img src="${shuffledImages[i]}" alt="Image">`
         htmlText += '</div></div></div>'
 
