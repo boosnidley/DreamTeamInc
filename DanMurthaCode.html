@@ -11,6 +11,17 @@
         background-color: #18181A;
         overflow: hidden;
     }
+
+    .header {
+        color: #e7e712;
+        font-size: 70px;
+        margin-top: 50px;
+        font: Karloff;
+        font-weight: bold;
+        align-items: center;
+        margin: 20px;
+    }
+
     .grid {
         box-sizing: border-box;
         width: max-content;
@@ -65,7 +76,7 @@
     }
 
     .tile-front {
-        background-color: #912F40;
+        background-color: #eb6123;
         transition: transform 0.5s;
     }
 
@@ -173,8 +184,6 @@
 
     }
 
-    }
-
     /*.ghost .shadow {*/
     /*    background-color: transparent;*/
     /*    box-shadow: 0 -30px 30px -2px #79ff91;*/
@@ -188,10 +197,14 @@
 </style>
 
 <head>
-    <title>Randomized Tile Grid 4.0</title>
+    <title>Halloween Tile Game!</title>
 </head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
+    <div class="header">
+        <p>Halloween Tile Game!</p>
+    </div>
+
     <div class="grid" id="tileGrid">
         <!-- The JavaScript code will populate the grid with randomized images -->
     </div>
