@@ -16,7 +16,6 @@ function randomizeArray(arr) {
     let randomIndex = 0
     while(res.length < arr.length){
         randomIndex = Math.floor(Math.random() * (arr.length))
-        console.log(randomIndex)
         if(!res.includes(arr[randomIndex])){
             res.push(arr[randomIndex])
         }
@@ -33,18 +32,26 @@ function createTiles(){
             '<img src="pics/knife.svg" alt=""></div><div class="tile-back">'
         htmlText += `<img src="${shuffledImages[i]}" alt="Image">`
         htmlText += '</div></div></div>'
-
-        // tile.appendChild(image);
-        // tile.addEventListener("click", function () {
-        //     image.style.display = "block";
-        // });
         tileGrid.innerHTML += htmlText;
     }
 }
 createTiles()
 
+$(document).ready(function (){
+    let w = $(window).width()
+    console.log(w)
+    $(".grid").css("gap", `${Math.trunc(0)}px ${Math.trunc(w * 0.02)}px`)
+    $(".ghost").css("width", `${Math.trunc(w * 4/15)}px`)
+    $(".tile").css("width", `${Math.trunc(w * 2/19)}px`)
+})
+
+$(".grid").on("resize", function (){
+
+})
+
 $(".tile").click(function (){
     if(!($(this).hasClass('flipped'))){
+        $(this).addClass("flipped")
         const tileBack = $(this).find('.tile-back');
         const tileBackImage = tileBack.find('img');
 

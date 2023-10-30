@@ -13,6 +13,7 @@
         margin: 0;
         background-color: #18181A;
         flex-direction: column;
+        overflow: hidden;
     }
 
     .header {
@@ -23,18 +24,25 @@
         font-weight: bold;
         align-items: center;
         text-align: center;
+        box-sizing: border-box;
+        height: 10vh;
         margin: 10px;
+    }
+
+    .header p {
+        margin: 0;
     }
 
     .grid {
         box-sizing: border-box;
         width: max-content;
         display: grid;
-        grid-template-columns: repeat(3, 200px);
-        gap: 30px;
+        /*gap: 0 30px;*/
+        grid-template-columns: repeat(3, 30%);
         position: relative;
         z-index: 10;
         margin: auto;
+        height: 75vh;
     }
 
     #tileGrid {
@@ -46,7 +54,7 @@
     }
 
     .tile {
-        width: 200px;
+        /*width: 200px;*/
         aspect-ratio: 1;
         background-color: transparent;
         display: flex;
@@ -190,9 +198,11 @@
     .button-container {
          	text-align: center;
          	font-family: Garamond, serif;
-            bottom: 0;
+            bottom: -2%;
             left: 0;
             width: 100%;
+            position: absolute;
+            z-index: 10;
          }
          
          .button {
