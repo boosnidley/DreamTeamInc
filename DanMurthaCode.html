@@ -232,6 +232,22 @@
        position: absolute;
        transform: rotateZ(10deg);
     }
+
+    .jump {
+        animation: jumpscare-animation 0.5s ease-in-out;
+    }
+
+    @keyframes jumpscare-animation {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(8);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
 </style>
     <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet'>
     <title>Halloween Tile Game!</title>
