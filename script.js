@@ -41,13 +41,22 @@ function createTiles(){
         tileGrid.innerHTML += htmlText;
     }
 }
-
 createTiles()
 
 $(".tile").click(function (){
     if(!($(this).hasClass('flipped'))){
+        const tileBack = $(this).find('.tile-back');
+        const tileBackImage = tileBack.find('img');
+
+        // Check if the tile-back image has src of Jumpscare.png
+        if (tileBackImage.attr('src') === './pics/Jumpscare.png') {
+            tileBack.addClass('jump'); // Add jump class before flipping
+        }
         const ind = $(this).index()
         $(this).children('.tile-inner').css('transform', 'rotateY(180deg)')
+        setTimeout(function () {
+            tileBack.removeClass('jump');
+        }, 500);
     }
-
 })
+
